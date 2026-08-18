@@ -1,0 +1,38 @@
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background-color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-content {
+  text-align: center;
+}
+
+.loading-brand {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  color: var(--color-secondary);
+  margin-bottom: 2.5rem;
+}
+
+.loading-track {
+  width: 160px;
+  height: 1px;
+  background-color: var(--color-border);
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.loading-line {
+  height: 100%;
+  width: 100%;
+  background-color: var(--color-accent);
+  transform-origin: left;
+  transform: scaleX(0);
+}

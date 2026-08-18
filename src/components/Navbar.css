@@ -1,0 +1,208 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--nav-height);
+  z-index: 500;
+  transition: background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+.navbar--scrolled {
+  background-color: rgba(249, 248, 246, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 var(--color-border);
+}
+
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+/* ── Brand ─────────────────────────────────── */
+.navbar-brand {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  letter-spacing: 0.12em;
+  color: var(--color-text-dark);
+  text-transform: uppercase;
+  z-index: 1;
+}
+
+/* ── Desktop Nav Links ─────────────────────── */
+.navbar-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.navbar-link {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-text-dark);
+  position: relative;
+  padding-bottom: 3px;
+}
+
+.navbar-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--color-accent);
+  transition: width 0.5s var(--ease-smooth);
+}
+
+.navbar-link:hover::after {
+  width: 100%;
+}
+
+/* ── Right Actions ─────────────────────────── */
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.navbar-cta {
+  padding: 0.65rem 1.6rem;
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  border-radius: 1px;
+  transition: background-color 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.navbar-cta span {
+  position: relative;
+  z-index: 1;
+}
+
+.navbar-cta::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease-smooth);
+}
+
+.navbar-cta:hover::after {
+  transform: scaleX(1);
+}
+
+/* ── Hamburger ─────────────────────────────── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+  z-index: 600;
+}
+
+.bar {
+  display: block;
+  height: 1.5px;
+  background-color: var(--color-secondary);
+  transition: all 0.4s var(--ease-smooth);
+  transform-origin: center;
+}
+
+.bar--top { width: 28px; }
+.bar--mid { width: 20px; }
+.bar--bot { width: 28px; }
+
+/* X state when menu open */
+.navbar--open .bar--top {
+  transform: translateY(6.5px) rotate(45deg);
+  width: 28px;
+}
+.navbar--open .bar--mid {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.navbar--open .bar--bot {
+  transform: translateY(-6.5px) rotate(-45deg);
+  width: 28px;
+}
+
+/* ── Mobile Menu Overlay ───────────────────── */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  background-color: var(--color-primary);
+  z-index: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s var(--ease-smooth);
+}
+
+.navbar--open .mobile-menu {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.mobile-link {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 8vw, 3.5rem);
+  color: var(--color-text-dark);
+  letter-spacing: 0.05em;
+  transition: color 0.3s ease;
+}
+
+.mobile-link:hover {
+  color: var(--color-accent);
+}
+
+.mobile-link--cta {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-text-muted);
+  margin-top: 1rem;
+}
+
+.mobile-link--cta:hover {
+  color: var(--color-accent);
+}
+
+/* ── Responsive ────────────────────────────── */
+@media (max-width: 900px) {
+  .navbar-links {
+    display: none;
+  }
+
+  .navbar-cta {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}

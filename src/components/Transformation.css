@@ -1,0 +1,112 @@
+.transformation-section {
+  padding: var(--space-2xl) 0;
+  background-color: var(--color-primary);
+}
+
+.transformation-header {
+  margin-bottom: var(--space-xl);
+}
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  height: 600px;
+  margin: 0 auto;
+  overflow: hidden;
+  cursor: ew-resize;
+  user-select: none;
+}
+
+.slider-image-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.slider-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  filter: grayscale(10%) contrast(1.05);
+}
+
+.slider-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  overflow: hidden;
+  /* width is controlled by React state */
+}
+
+.slider-overlay .slider-image {
+  width: 1000px; /* Match max-width of container */
+  max-width: none;
+}
+
+.slider-divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--color-primary);
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.slider-handle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px;
+  height: 48px;
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+}
+
+.slider-container:hover .slider-handle {
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+.slider-label {
+  position: absolute;
+  bottom: var(--space-md);
+  padding: 0.5rem 1rem;
+  background-color: rgba(20, 20, 20, 0.6);
+  color: var(--color-primary);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  backdrop-filter: blur(4px);
+  pointer-events: none;
+}
+
+.label-after {
+  right: var(--space-md);
+}
+
+.label-before {
+  left: var(--space-md);
+}
+
+@media (max-width: 1000px) {
+  .slider-container {
+    height: 60vw;
+  }
+  
+  .slider-overlay .slider-image {
+    width: 100vw;
+    margin-left: calc(-1 * var(--container-padding));
+  }
+}

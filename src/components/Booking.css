@@ -1,0 +1,196 @@
+.booking-section {
+  padding: var(--space-2xl) 0;
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+}
+
+.text-light {
+  color: var(--color-primary);
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+.mt-md {
+  margin-top: var(--space-md);
+}
+
+.booking-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.booking-content {
+  margin-bottom: var(--space-xl);
+}
+
+/* ── Form Layout ──────────────────────────────────── */
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.form-row {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.form-group {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Floating Labels & Inputs ─────────────────────── */
+.form-input {
+  width: 100%;
+  padding: 1.2rem 0 0.4rem;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--color-primary);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(249, 248, 246, 0.2);
+  outline: none;
+  border-radius: 0;
+  transition: border-color 0.4s ease;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.form-label {
+  position: absolute;
+  top: 1.2rem;
+  left: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: rgba(249, 248, 246, 0.5);
+  pointer-events: none;
+  transition: all 0.3s var(--ease-smooth);
+}
+
+/* Float label up when input is focused, valid, or is date/select */
+.form-input:focus ~ .form-label,
+.form-input:not(:placeholder-shown):not(select):not([type="date"]) ~ .form-label,
+.form-input[type="date"] ~ .form-label,
+select.form-input:valid ~ .form-label {
+  top: -0.2rem;
+  font-size: 0.6rem;
+  color: var(--color-accent);
+}
+
+.form-input:focus {
+  border-bottom-color: var(--color-accent);
+}
+
+/* Date placeholder color fix */
+input[type="date"]::-webkit-datetime-edit {
+  color: rgba(249, 248, 246, 0.8);
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+/* Custom Select Arrow */
+.select-arrow {
+  position: absolute;
+  right: 0;
+  bottom: 0.8rem;
+  width: 10px;
+  height: 10px;
+  pointer-events: none;
+}
+.select-arrow::before,
+.select-arrow::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 1px;
+  background-color: rgba(249, 248, 246, 0.5);
+  transition: background-color 0.3s ease;
+}
+.select-arrow::before {
+  transform: rotate(45deg);
+  left: 0;
+}
+.select-arrow::after {
+  transform: rotate(-45deg);
+  left: 4px;
+}
+.form-input:focus ~ .select-arrow::before,
+.form-input:focus ~ .select-arrow::after {
+  background-color: var(--color-accent);
+}
+
+/* Option styling (only affects dropdown menu in some browsers) */
+option {
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+}
+
+/* ── Submit Button ────────────────────────────────── */
+.form-submit {
+  margin-top: var(--space-md);
+}
+
+.form-submit .btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+}
+
+/* ── Success State ────────────────────────────────── */
+.booking-success {
+  padding: var(--space-xl) 0;
+  animation: fadeIn 0.8s var(--ease-smooth);
+}
+
+.success-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 1px solid var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-md);
+  color: var(--color-accent);
+}
+
+.booking-success h3 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.booking-success p {
+  max-width: 400px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.booking-success .btn-outline {
+  border-color: rgba(249, 248, 246, 0.3);
+  color: var(--color-primary);
+}
+
+.booking-success .btn-outline:hover {
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Responsive ───────────────────────────────────── */
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+}

@@ -1,0 +1,85 @@
+.testimonials-section {
+  padding: var(--space-xl) 0 var(--space-2xl);
+  background-color: var(--color-primary);
+}
+
+.mb-xl {
+  margin-bottom: var(--space-xl);
+}
+
+/* ── Desktop Grid ─────────────────────────────────── */
+.testimonials-grid {
+  display: grid;
+  /* 3 items, 2 thin separator columns */
+  grid-template-columns: 1fr 1px 1fr 1px 1fr;
+  align-items: stretch;
+}
+
+.testimonial-item {
+  padding: 0 var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.testimonial-separator {
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    var(--color-border) 20%,
+    var(--color-border) 80%,
+    transparent 100%
+  );
+  transform-origin: top;
+}
+
+/* ── Content ──────────────────────────────────────── */
+.testimonial-stars {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  color: var(--color-accent);
+  margin-bottom: var(--space-md);
+}
+
+.testimonial-quote {
+  font-size: clamp(1.1rem, 1.5vw, 1.4rem);
+  line-height: 1.6;
+  margin-bottom: var(--space-md);
+  color: var(--color-text-dark);
+}
+
+.testimonial-client {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--color-text-muted);
+}
+
+/* ── Mobile Horizontal Carousel ───────────────────── */
+@media (max-width: 992px) {
+  .testimonials-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 0;
+    padding-bottom: var(--space-md);
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .testimonials-grid::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+  }
+
+  .testimonial-item {
+    flex: 0 0 85vw; /* Each item takes up 85% of screen width */
+    scroll-snap-align: center;
+    padding: 0 var(--space-md);
+  }
+
+  /* Hide vertical separators on mobile */
+  .testimonial-separator {
+    display: none;
+  }
+}

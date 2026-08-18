@@ -1,0 +1,74 @@
+.brand-story-section {
+  position: relative;
+  padding: var(--space-2xl) 0;
+  color: var(--color-primary);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  min-height: 90vh;
+}
+
+/* ── Background & Parallax ────────────────────── */
+.brand-story-bg-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.brand-story-bg {
+  position: absolute;
+  top: -15%;
+  left: 0;
+  width: 100%;
+  height: 130%; /* Extra height for parallax */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  will-change: transform;
+}
+
+.brand-story-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(20, 20, 20, 0.7) 0%,
+    rgba(20, 20, 20, 0.4) 50%,
+    rgba(20, 20, 20, 0.8) 100%
+  );
+  z-index: 1;
+}
+
+/* ── Content ──────────────────────────────────── */
+.relative-z {
+  position: relative;
+  z-index: 2;
+}
+
+.story-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.story-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  color: var(--color-accent);
+  margin-bottom: var(--space-lg);
+}
+
+.story-statement {
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  line-height: 1.25;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--color-primary);
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  .brand-story-section {
+    min-height: 70vh;
+  }
+}
