@@ -5,29 +5,49 @@ import './Gallery.css';
 
 const galleryItems = [
   {
-    src: 'https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=1400&auto=format&fit=crop',
-    alt: 'AURELÉ salon interior — warm editorial lighting',
+    src: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=1400&auto=format&fit=crop',
+    alt: 'Luxury salon interior with warm ambient lighting',
     label: 'Studio',
   },
   {
-    src: 'https://images.unsplash.com/photo-1595476108010-b4d1f10d5e43?q=80&w=1000&auto=format&fit=crop',
-    alt: 'Precision hair styling at AURELÉ',
+    src: 'https://images.unsplash.com/photo-1562322140-8baeececf3df?q=80&w=1400&auto=format&fit=crop',
+    alt: 'Professional hair styling with precision tools',
     label: 'Hair',
   },
   {
-    src: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=1000&auto=format&fit=crop',
-    alt: 'Skincare treatment at AURELÉ',
-    label: 'Skin',
+    src: 'https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?q=80&w=1400&auto=format&fit=crop',
+    alt: 'Luxury spa treatment room with candles',
+    label: 'Spa',
   },
   {
-    src: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1000&auto=format&fit=crop',
-    alt: 'Bridal styling at AURELÉ',
+    src: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=1400&auto=format&fit=crop',
+    alt: 'Bridal makeup preparation in soft light',
     label: 'Bridal',
   },
   {
-    src: 'https://images.unsplash.com/photo-1512496115851-a1c8f02fbc5c?q=80&w=1000&auto=format&fit=crop',
-    alt: 'Makeup artistry at AURELÉ',
-    label: 'Makeup',
+    src: 'https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?q=80&w=1400&auto=format&fit=crop',
+    alt: 'Elegant beauty portrait with flawless skin',
+    label: 'Beauty',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?q=80&w=1400&auto=format&fit=crop',
+    alt: 'Colour treatment at a premium hair salon',
+    label: 'Colour',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=1400&auto=format&fit=crop',
+    alt: 'Advanced clinical skincare facial treatment',
+    label: 'Skin',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?q=80&w=1400&auto=format&fit=crop',
+    alt: 'Luxury nail art and manicure service',
+    label: 'Nails',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1540555700478-4be289fbec6f?q=80&w=1400&auto=format&fit=crop',
+    alt: 'Relaxing massage therapy session',
+    label: 'Wellness',
   },
 ];
 
@@ -74,7 +94,7 @@ const Gallery = () => {
         </header>
 
         <div className="gallery-grid">
-          {/* Large feature image */}
+          {/* Row 1: Large feature + two stacked */}
           <div className="gallery-item gallery-item--featured" data-cursor-hover>
             <div className="gallery-img-wrap">
               <img src={galleryItems[0].src} alt={galleryItems[0].alt} className="gallery-img" loading="lazy" />
@@ -82,10 +102,9 @@ const Gallery = () => {
             </div>
           </div>
 
-          {/* Right column: two stacked */}
           <div className="gallery-col">
             {[galleryItems[1], galleryItems[2]].map((item, i) => (
-              <div className="gallery-item" key={i} data-cursor-hover>
+              <div className="gallery-item" key={`col-${i}`} data-cursor-hover>
                 <div className="gallery-img-wrap">
                   <img src={item.src} alt={item.alt} className="gallery-img" loading="lazy" />
                   <span className="gallery-label uppercase">{item.label}</span>
@@ -94,15 +113,33 @@ const Gallery = () => {
             ))}
           </div>
 
-          {/* Bottom row: two side-by-side */}
-          {[galleryItems[3], galleryItems[4]].map((item, i) => (
-            <div className="gallery-item gallery-item--wide" key={i} data-cursor-hover>
+          {/* Row 2: Three equal columns */}
+          {[galleryItems[3], galleryItems[4], galleryItems[5]].map((item, i) => (
+            <div className="gallery-item gallery-item--third" key={`row2-${i}`} data-cursor-hover>
               <div className="gallery-img-wrap">
                 <img src={item.src} alt={item.alt} className="gallery-img" loading="lazy" />
                 <span className="gallery-label uppercase">{item.label}</span>
               </div>
             </div>
           ))}
+
+          {/* Row 3: Two wide */}
+          {[galleryItems[6], galleryItems[7]].map((item, i) => (
+            <div className="gallery-item gallery-item--wide" key={`row3-${i}`} data-cursor-hover>
+              <div className="gallery-img-wrap">
+                <img src={item.src} alt={item.alt} className="gallery-img" loading="lazy" />
+                <span className="gallery-label uppercase">{item.label}</span>
+              </div>
+            </div>
+          ))}
+
+          {/* Row 4: Full-width cinematic */}
+          <div className="gallery-item gallery-item--full" data-cursor-hover>
+            <div className="gallery-img-wrap">
+              <img src={galleryItems[8].src} alt={galleryItems[8].alt} className="gallery-img" loading="lazy" />
+              <span className="gallery-label uppercase">{galleryItems[8].label}</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
