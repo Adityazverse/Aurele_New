@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from 'react';
 import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
 
 import './Hero.css';
 
@@ -11,7 +10,6 @@ const Hero = () => {
   const taglineRef      = useRef();
   const servicesRef     = useRef();
   const ctaRef          = useRef();
-  const scrollProgress  = useRef(0);  // Shared with BeautyBottle via prop
 
   // ── Hero entrance animations (after loading screen) ──────
   useEffect(() => {

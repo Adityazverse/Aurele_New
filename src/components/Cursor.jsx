@@ -11,7 +11,6 @@ const Cursor = () => {
     if (window.matchMedia('(hover: none)').matches) return;
 
     const el = cursorRef.current;
-    let raf;
 
     const onMove = (e) => {
       if (!visible) setVisible(true);
