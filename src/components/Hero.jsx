@@ -8,7 +8,6 @@ const Hero = () => {
   const contentRef      = useRef();
   const titleRef        = useRef();
   const taglineRef      = useRef();
-  const servicesRef     = useRef();
   const ctaRef          = useRef();
 
   // ── Hero entrance animations (after loading screen) ──────
@@ -27,13 +26,6 @@ const Hero = () => {
     tl.from(taglineRef.current, {
       opacity: 0,
       y: 20,
-      duration: 0.9,
-      ease: 'power3.out',
-    }, '-=0.7');
-
-    tl.from(servicesRef.current, {
-      opacity: 0,
-      y: 15,
       duration: 0.9,
       ease: 'power3.out',
     }, '-=0.7');
@@ -59,7 +51,7 @@ const Hero = () => {
         {/* Background Video */}
         <div className="hero-video-wrapper">
           <video 
-            src="/hero.mp4" 
+            src={`${import.meta.env.BASE_URL}hero.mp4`} 
             autoPlay 
             loop 
             muted 

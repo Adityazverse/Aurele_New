@@ -11,7 +11,7 @@ const servicesData = [
     price: 'Starting from ₹1,499',
     duration: '60–120 min',
     image: 'https://images.unsplash.com/photo-1595476108010-b4d1f10d5e43?q=80&w=1400&auto=format&fit=crop',
-    video: '/hair.mp4',
+    video: `${import.meta.env.BASE_URL}hair.mp4`,
   },
   {
     id: '02',
@@ -20,7 +20,7 @@ const servicesData = [
     price: 'Starting from ₹2,999',
     duration: '45–90 min',
     image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=1400&auto=format&fit=crop',
-    video: '/skin.mp4',
+    video: `${import.meta.env.BASE_URL}skin.mp4`,
   },
   {
     id: '03',
@@ -29,7 +29,7 @@ const servicesData = [
     price: 'Starting from ₹3,499',
     duration: '60 min',
     image: 'https://images.unsplash.com/photo-1512496115851-a1c8f02fbc5c?q=80&w=1400&auto=format&fit=crop',
-    video: '/makeup.mp4',
+    video: `${import.meta.env.BASE_URL}makeup.mp4`,
   },
   {
     id: '04',
